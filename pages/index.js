@@ -1,5 +1,8 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import Button from "react-bootstrap/Button";
 import styles from "../styles/Home.module.css";
 
 export const getStaticProps = async (context) => {
@@ -12,9 +15,8 @@ export const getStaticProps = async (context) => {
 };
 
 export default function Home({ recipe }) {
-  console.log("recette récup:", recipe);
   return (
-    <div className={styles.container}>
+    <div className={styles.general}>
       <Head>
         <title>Next-Recipe | Home</title>
         <meta name="Home" content="Home" />
@@ -28,16 +30,26 @@ export default function Home({ recipe }) {
           the world !
         </p>
         <p>Here is a random recipe :</p>
-        <p>{recipe?.meals?.[0]?.strMeal}</p>
-        <p>
-          This meal is a {recipe?.meals?.[0]?.strArea}{" "}
-          {recipe?.meals?.[0]?.strCategory} preparation.
-        </p>
-        <Image
-          src={recipe?.meals?.[0]?.strMealThumb}
-          width={450}
-          height={450}
-        />
+        <Link href="/">
+          <div className="d-grid gap-2">
+            <Button className={styles.btn} variant="primary" size="lg">
+              Reroll for a new recipe
+            </Button>
+          </div>
+        </Link>
+
+        <div className={styles.random_recipe}>
+          <Image
+            src={recipe?.meals?.[0]?.strMealThumb}
+            width={450}
+            height={450}
+          />
+          <p>{recipe?.meals?.[0]?.strMeal}</p>
+          <p>
+            This meal is a {recipe?.meals?.[0]?.strArea},{" "}
+            {recipe?.meals?.[0]?.strCategory} preparation.
+          </p>
+        </div>
       </main>
     </div>
   );

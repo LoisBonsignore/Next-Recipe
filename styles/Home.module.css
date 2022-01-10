@@ -1,1 +1,13 @@
-
+.general {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.random_recipe {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 20px;
+}
+.btn {
+  margin: 20px;
+}
