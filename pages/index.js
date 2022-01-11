@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,6 +50,14 @@ export default function Home({ recipe }) {
             This meal is a {recipe?.meals?.[0]?.strArea},{" "}
             {recipe?.meals?.[0]?.strCategory} preparation.
           </p>
+          <Link
+            href={{
+              pathname: "/random-recipe-detail",
+              query: { recipe: recipe },
+            }}
+          >
+            <a>Click to see the complete recipe</a>
+          </Link>
         </div>
       </main>
     </div>
