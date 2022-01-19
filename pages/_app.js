@@ -1,10 +1,13 @@
 import Layout from "../components/Layout";
 import "../styles/globals.css";
+import { ContextWrapper } from "../components/ContextWrapper";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, navigation }) {
   return (
     <Layout>
-      <Component {...pageProps} />
+      <ContextWrapper navigation={navigation}>
+        <Component {...pageProps} />
+      </ContextWrapper>
     </Layout>
   );
 }

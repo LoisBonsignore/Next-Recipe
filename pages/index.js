@@ -45,19 +45,18 @@ export default function Home({ recipe }) {
             width={450}
             height={450}
           />
-          <p>{recipe?.meals?.[0]?.strMeal}</p>
+          <h2>{recipe?.meals?.[0]?.strMeal}</h2>
           <p>
             This meal is a {recipe?.meals?.[0]?.strArea},{" "}
             {recipe?.meals?.[0]?.strCategory} preparation.
           </p>
-          <Link
-            href={{
-              pathname: "/random-recipe-detail",
-              query: { recipe: recipe },
-            }}
-          >
+          <p>
+            You can find this recipe among multiple others in{" "}
+            <a href="/recipe-detail">Search a recipe</a>.
+          </p>
+          {/* <Link href={`/recipe-detail/${recipe.idMeal}`}>
             <a>Click to see the complete recipe</a>
-          </Link>
+          </Link> */}
         </div>
       </main>
     </div>
